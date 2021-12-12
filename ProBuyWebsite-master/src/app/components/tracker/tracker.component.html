@@ -19,15 +19,16 @@
     
       <div id="id01" class="w3-modal">
         <div class="w3-modal-content w3-card-4">
-          <header class="w3-container w3-#F56416" style="text-align: center;"> 
+          <header class="w3-container w3-orange" style="text-align: center;"> 
             <span onclick="document.getElementById('id01').style.display='none'; location = 'categories';" 
             class="w3-button w3-display-topright">&times;</span>
             <h2 class="heading">Tracking Info</h2>
           </header>
           <div class="w3-container"  *ngFor = 'let us of trackerData'>
             <p style = "padding-top: 10px">Tracking ID: {{us.Tracking_ID}}</p>
-            <p>You placed you order on {{us.Order_Date}}</p>
-            <p>You will receive the ordered products by {{us.Estimated_Delivery_Date}}</p>
+            <p>Order ID: {{us.Order_id}}</p>
+            <p>You placed you order on {{us.OD}}</p>
+            <p>You will receive the ordered products by {{us.EDD}}</p>
           </div>
           <!-- <footer class="w3-container w3-teal">
             <p>Modal Footer</p>

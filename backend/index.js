@@ -54,79 +54,6 @@ db.connect(err=> {
     console.log('db connected...');
 
 });
-
-/*
-
-app.get('/getcustomer', (req, res)=> {
-
-    let qr = `select * from customer`;
-
- 
-
-    db.query(qr, (err, result) => {
-
-        if(err) {console.log(err); }
-
-        if(result.length > 0) {
-
-            res.send({
-
-                message: "all customers",
-
-                data:result
-
-            });
-
-        }
-
-    });
-
-});
-
-*/
-
-//get single data
-
-/*app.get('/getcustomer/:id', (req, res) => {
-
-    let gid = req.params.id;
-
-    let qr = `select * from customer where Customer_ID = ${gid}`;
-
- 
-
-    db.query(qr, (err, result) => {
-
-        if(err) {console.log(err); }
-
-        if(result.length > 0) {
-
-            res.send({
-
-                message: "single data",
-
-                data:result
-
-            });
-
-        }
-
-        else{
-
-            res.send({
-
-                message: "data not found"
-
-            });
-
-        }
-
- 
-
-    });
-
-});*/
-
  
 
 //insert into customer (sign up)
@@ -303,7 +230,7 @@ app.post('/getorders' , (req, res) => {
 
                 values (
 
-                   (sysdate()),
+                   (select sysdate() from dual),
                     
                   (select Customer_ID from Customer where Contact = '${contact}'),
 
@@ -314,12 +241,12 @@ app.post('/getorders' , (req, res) => {
                   )`;
 
  
-
+                    
     db.query(qr, (err, result) => {
 
         if(err) {console.log(err); }
 
-        console.log('resullt', result);
+        console.log('result in orders', result);
 
         res.send({
 
@@ -490,8 +417,8 @@ app.get('/gettracker/:email', (req, res) => {
     console.log('createbody' , req.params.email);
     //how to pick the customer id of the current customer? do we do it with email like we did last time
     let email = req.params.email;
-    let qr = `select max(Tracking_ID) as Tracking_ID, Order_Date, Estimated_Delivery_Date from tracker where Customer_ID 
-                = (select Customer_ID from Customer where Email = '${email}') `;
+    let qr = `select max(Tracking_ID) as Tracking_ID, Order_id, left(Order_Date,10) as OD, left(Estimated_Delivery_Date,10) as EDD from tracker where Customer_ID
+                = (select Customer_ID from Customer where Email = '${email}') and order_id = (select max(order_id) from tracker)`;
 
     db.query(qr, (err, result) => {
         if(err) {console.log(err); }

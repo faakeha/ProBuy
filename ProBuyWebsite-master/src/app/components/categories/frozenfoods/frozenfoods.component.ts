@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class FrozenfoodsComponent implements OnInit {
 
-  constructor(private service: ProductService) { }
+  constructor(private service: ProductService, private router2: Router) { }
   errormsg:any;
   successmsg:any;
   get:any;
@@ -57,9 +58,16 @@ export class FrozenfoodsComponent implements OnInit {
     else if(this.clicked == true){
       this.errormsg = 'Item already added. Go to your cart to change the quantity.';
     }
+    this.reloadCurrentRoute();
   
-    }
+  }
 
+  reloadCurrentRoute() {
+    let currentUrl = this.router2.url;
+    this.router2.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router2.navigate([currentUrl]);
+    });
+}
 
 
 }

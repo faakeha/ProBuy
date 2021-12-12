@@ -50,6 +50,7 @@ export class CheckoutComponent implements OnInit {
         }
         
       });
+      
       console.log('cnt', this.contact);
       this.service.insertOrder(this.userForm.value).subscribe((res)=> {
         
@@ -57,6 +58,10 @@ export class CheckoutComponent implements OnInit {
       });
       this.service.generateTracking(this.userForm.value).subscribe((res)=>{
         console.log('insert tracker');
+      });
+
+      this.service.dropcart().subscribe((res) => {
+        console.log('drop cart');
       });
       
       this.router2.navigate(['tracker'])

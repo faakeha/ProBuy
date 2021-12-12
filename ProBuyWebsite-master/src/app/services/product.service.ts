@@ -76,20 +76,12 @@ export class ProductService {
   //get single data
   getSingleData(email:any, pass:any):Observable<any>{
     console.log('createapi=>', email, pass);
-    //let em = data;
-    let params = new HttpParams()
-    .set('Email', email)
-    .set('Pass', pass);
-
-    console.log("params:", params.get('Email'));
-
-    return this.http.get(`${this.apiUrlcustomer}/${email}/${pass}`);
+    return this.http.get(`${this.apiUrlcustomer}/${email}/${pass}`); //get(/customer/email/pass)
   }
 
   deleteFromCart(pid:any, data:any): Observable<any>{
     console.log('createapi=>', data );
     let prodid = pid;
-
     return this.http.delete(`${this.apiUrltracker}/${prodid}`, data);
   }
 
