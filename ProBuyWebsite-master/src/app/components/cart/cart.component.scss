@@ -4,7 +4,7 @@ body{
   padding: 0;
 //  background: linear-gradient(to bottom right, #2C363F);
   background-color: #2C363F;
-  height: 80vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -212,7 +212,7 @@ button:hover {
 table{ display:block;}
 
 table {
-  height: 280px;       /* Just for the demo          */
+  height: 250px;       /* Just for the demo          */
   //overflow-y: auto;    /* Trigger vertical scroll    */
   overflow: auto;
  // overflow-x: hidden;  /* Hide the horizontal scroll */
@@ -222,8 +222,8 @@ table {
 td, th{
 text-align: center;
 vertical-align: middle;
-padding-left: 140px;
-padding-right: 140px;
+padding-left: 120px;
+padding-right: 120px;
 text-transform: uppercase;
 
 }
