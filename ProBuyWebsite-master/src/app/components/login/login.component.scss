@@ -1,0 +1,88 @@
+
+
+form {
+   // border: 70px solid #f1f1f1;
+   background: #2C363F;
+   padding: 4em 30em;
+   font-family: helvetica, sans-serif;
+  }
+
+h1 {
+      font: helvetica;
+      font-size:35px;
+      color:white;
+      text-align: center;
+      padding-bottom: 10px; 
+  }
+
+  label{
+      padding-top: 10px
+  }
+
+ 
+
+  //button formatting
+  .mainButton1 {
+    width: 100%;
+    height: 20%;
+    margin: 1em 0;
+    border: none;
+    background: #F56416;
+    padding: 1em 0;
+    padding-top: 1em;
+    font-size: 0.8em;
+    font-style: bold;
+    font:message-box;
+    clear: both;
+    color: #000;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+
+  }
+
+    //button formatting
+    .mainButton2 {
+      width: 100%;
+      height: 20%;
+      margin: 1em 0;
+      border: 10cm;
+      background: #42f83c;
+      padding: 1em 0;
+      padding-top: 1em;
+      font-size: 0.8em;
+      font-style: bold;
+      font:message-box;
+      clear: both;
+      color: #000;
+      outline: none;
+      cursor: pointer;
+      border-radius: 5px;
+
+      
+  
+    }
+
+  .mainButton1:hover {
+    background-color: #87B38D;
+  }
+  .mainButton2:hover {
+    background-color: #87B38D;
+  }
+
+
+  
+
+  .container {
+      position: relative;
+    padding-bottom: 10px;
+    size: 10px;
+  }
+
+ 
+  a{
+    color: red ;
+    size: 1em;
+    font-style: italic;
+  }
+  
